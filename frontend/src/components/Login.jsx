@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 
 const Login = () => {
 
-  const [state, setState] = useState('Login')
+  const [state, setState] = useState ('Login')
   const { setShowLogin, backendUrl, setToken, setUser } = useContext(AppContext)
 
   const [name, setName] = useState('')
