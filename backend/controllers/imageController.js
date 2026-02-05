@@ -1,4 +1,4 @@
-import UserModel from '../models/userModel.js'
+import userModel from '../models/userModel.js'
 import FormData from 'form-data'
 import axios from 'axios'
 
