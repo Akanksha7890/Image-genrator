@@ -85,37 +85,3 @@ export const userCredits = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
-// Payment
-// Payment (Fake / Demo) - Add at the bottom of userController.js
-export const fakePayment = async (req, res) => {
-  try {
-    const userId = req.userId       // auth middleware se milega
-    const { plan } = req.body       // plan = 'basic', 'pro', 'premium'
-
-    if (!userId || !plan) {
-      return res.status(400).json({ success: false, message: 'Missing details' })
-    }
-
-    let credits = 0
-    if (plan === 'basic') credits = 5
-    if (plan === 'pro') credits = 10
-    if (plan === 'premium') credits = 20
-
-    const user = await userModel.findById(userId)
-    if (!user) {
-      return res.status(404).json({ success: false, message: 'User not found' })
-    }
-
-    user.creditBalance += credits
-    await user.save()
-
-    res.json({
-      success: true,
-      message: 'Payment Successful (Demo)',
-      addedCredits: credits,
-      totalCredits: user.creditBalance
-    })
-  } catch (error) {
-    res.status(500).json({ success: false, message: error.message })
-  }
-}

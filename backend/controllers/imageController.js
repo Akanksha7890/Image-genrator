@@ -11,7 +11,7 @@ export const generateImage = async (req, res) => {
       return res.json({ success: false, message: 'Missing Details' })
     }
 
-    const user = await UserModel.findById(userId)
+    const user = await userModel.findById(userId)
 
     if (!user) {
       return res.json({success: false, message: 'User not found' })
