@@ -8,9 +8,21 @@ import imageRouter from './routes/imageRoutes.js' // ✅ EXACT FILE NAME
 const PORT = process.env.PORT || 4000
 const app = express()
 
-app.use(express.json())
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONTEND_URL
+]
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true)
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
   credentials: true
 }))
 
