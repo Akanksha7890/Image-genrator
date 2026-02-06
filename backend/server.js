@@ -8,6 +8,8 @@ import imageRouter from './routes/imageRoutes.js' // ✅ EXACT FILE NAME
 const PORT = process.env.PORT || 4000
 const app = express()
 
+app.use(express.json())  
+
 const allowedOrigins = [
   "http://localhost:5173",
  "https://image-generator-frontend-9sys.onrender.com"
