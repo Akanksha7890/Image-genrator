@@ -10,7 +10,7 @@ const app = express()
 
 const allowedOrigins = [
   "http://localhost:5173",
-  process.env.FRONTEND_URL
+ "https://image-generator-frontend-9sys.onrender.com"
 ]
 
 app.use(cors({
