@@ -12,7 +12,7 @@ const AppContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token'))
   const [credit, setCredit] = useState(0)
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL
+  const backendUrl = "https://image-generator-backend-11ss.onrender.com"
   const navigate = useNavigate()
 
   // 🔹 Load credits
